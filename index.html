@@ -54,7 +54,9 @@
         <label class="mb-2 fw-bold" for="amount">Amount</label>
         <input id="amount" type="number" class="form-control mb-4" value="10" max="30">
 
-        <button class="rounded-pill mt-3 m-auto"> Start Quiz </button>
+        <div class="w-100 d-flex justify-content-center">
+          <button class="rounded-pill mt-3 m-auto"> Start Quiz </button>
+        </div>
       </section>
 
       <section id="questions" class="my-4 col-11 col-lg-8 card  shadow-lg border-0">
@@ -65,17 +67,6 @@
           <h3 class="fs-4 mb-3">Who is a co-founder of music streaming service Spotify?</h3>
           
           <form id="answers" class="ms-3">
-            <input type="radio" name="answers" class="radioBtns fs-5">
-            <label>Graham Greene</label>
-            <br>
-            <input type="radio" name="answers" class="radioBtns fs-5">
-            <label>Arthur Conan Doyle</label>
-            <br>
-            <input type="radio" name="answers" class="radioBtns fs-5">
-            <label>H G Wells</label>
-            <br>
-            <input type="radio" name="answers" class="radioBtns fs-5">
-            <label>Arthur C Clarke</label>
           </form>
 
           <span id="error-message" class="p-2 bg-danger rounded-pill text-white w-25 m-auto text-center">Choose an answer</span>
@@ -83,8 +74,8 @@
           <button class="rounded-pill mt-5 m-auto"> Submit Answer </button>
         </div>
         <div class="card-footer p-3 pb-1 d-flex justify-content-between flex-wrap">
-          <p class="mb-2 col-12 col-sm-6"><b>Category:</b> Sports</p>
-          <p class="mb-2 text-end col-sm-6"><b>Difficulty:</b> medium</p>
+          <p class="mb-2 col-12 col-sm-6"><b>Category:</b> <span>Sports</span></p>
+          <p class="mb-2 text-end col-sm-6"><b>Difficulty:</b> <span>medium</span></p>
         </div>
 
       </section>

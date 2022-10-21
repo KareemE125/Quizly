@@ -14,6 +14,7 @@ h1{
     width: fit-content;
     font-size: 3rem;
     display: none;
+    cursor: pointer;
 }
 
 main{
@@ -53,6 +54,12 @@ main button:hover{
     border-color: 2px solid transparent;
     background-color: var(--main-color);
     color: whitesmoke;
+}
+
+.btn-disabled{
+    pointer-events: none;
+    background-color: var(--main-color);
+    color: white;
 }
 
 
