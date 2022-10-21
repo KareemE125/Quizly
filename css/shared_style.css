@@ -1,0 +1,35 @@
+:root{
+    --main-color: #6d15a9;
+    --secondary-color: #F97908;
+    --main-dark-color: #5000ca;
+    --text-headers-color: #1E1E1E;
+    --text-color: #4E4E4E;
+    --bg-diabled: #ebebeb;
+    --bg-semi-transparent: rgba(255, 255, 255, 0.9);
+
+}
+
+body{
+    transition: 0.5s;
+}
+
+*:not(i){
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}    
+
+
+::placeholder{
+    color: #75757D;
+}
+
+.card-shadow-one{
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 6%),
+                0 2px 5px 0 rgb(0 0 0 / 20%);
+}
+
+.card-shadow-two{
+    box-shadow: 0 13px 8px -10px rgb(0 0 0 / 10%);
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Quizly</title>
+
+
+  <link rel="stylesheet" href="css/defaults/all.min.css"> <!-- FontAwesome CSS-->
+  <link rel="stylesheet" href="css/defaults/bootstrap.min.css">
+  <link rel="stylesheet" href="css/shared_style.css">
+  <link rel="stylesheet" href="css/home_style.css">
+
+  <script src="js/jquery-3.6.1.js" defer></script>
+  <script src="js/bootstrap.bundle.min.js" defer></script>
+  <script type="module" src="js/main.js" defer></script>
+
+</head>
+
+<body>
+
+
+  <section class="d-flex justify-content-center">
+    <h1 class="mt-4">Quizly</h1>
+  </section>
+
+  <main>
+    <div class="d-flex justify-content-center align-items-center">
+      <section class="p-5 my-4 col-sm-11 col-lg-8 card  shadow-lg border-0">
+        <h3 class="mb-3 fw-bold">Choose Questions Options:</h3>
+
+        <label class="mb-2 fw-bold" for="categories">Category</label>
+        <select id="categories" class="form-select mb-4">
+          <option value="any">Any Category</option>
+          <option value="9">General Knowledge</option>
+          <option value="21">Sports</option>
+          <option value="23">History</option>
+          <option value="26">Celebrities</option>
+          <option value="27">Animals</option>
+          <option value="28">Vehicles</option>
+        </select>
+
+        <label class="mb-2 fw-bold" for="difficulties">Difficulty</label>
+        <select id="difficulties" class="form-select mb-4">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+
+        <label class="mb-2 fw-bold" for="amount">Amount</label>
+        <input id="amount" type="number" class="form-control mb-4" value="10" max="30">
+
+        <button class="rounded-pill mt-3 m-auto"> Start Quiz </button>
+      </section>
+
+      <section id="questions" class="my-4 col-11 col-lg-8 card  shadow-lg border-0">
+        <div class="card-header">
+          <h3 class="my-3 fw-bold">Question #1:</h3>
+        </div>
+        <div class="card-body p-4 d-flex flex-column justify-content-center">
+          <h3 class="fs-4 mb-3">Who is a co-founder of music streaming service Spotify?</h3>
+          
+          <form id="answers" class="ms-3">
+            <input type="radio" name="answers" class="radioBtns fs-5">
+            <label>Graham Greene</label>
+            <br>
+            <input type="radio" name="answers" class="radioBtns fs-5">
+            <label>Arthur Conan Doyle</label>
+            <br>
+            <input type="radio" name="answers" class="radioBtns fs-5">
+            <label>H G Wells</label>
+            <br>
+            <input type="radio" name="answers" class="radioBtns fs-5">
+            <label>Arthur C Clarke</label>
+          </form>
+
+          <span id="error-message" class="p-2 bg-danger rounded-pill text-white w-25 m-auto text-center">Choose an answer</span>
+
+          <button class="rounded-pill mt-5 m-auto"> Submit Answer </button>
+        </div>
+        <div class="card-footer p-3 pb-1 d-flex justify-content-between flex-wrap">
+          <p class="mb-2 col-12 col-sm-6"><b>Category:</b> Sports</p>
+          <p class="mb-2 text-end col-sm-6"><b>Difficulty:</b> medium</p>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+
+</html>
+
+<!--
+
+  <select class="form-control">
+    <option value="any">Any Category</option>
+    <option value="9">General Knowledge</option>
+    <option value="21">Sports</option>
+    <option value="23">History</option>
+    <option value="26">Celebrities</option>
+    <option value="27">Animals</option>
+    <option value="28">Vehicles</option>
+  </select>
+
+-->
