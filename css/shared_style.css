@@ -6,7 +6,8 @@
     --text-color: #4E4E4E;
     --bg-diabled: #ebebeb;
     --bg-semi-transparent: rgba(255, 255, 255, 0.9);
-
+    --success-color: #198754;
+    --error-color: #a1080a;
 }
 
 body{

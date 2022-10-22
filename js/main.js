@@ -17,8 +17,15 @@ const QuestionCategoryElement =  $('#questions .card-footer p span')[0];
 const QuestionDifficultyElement =  $('#questions .card-footer p span')[1];
 const submitAnswerBtn = $("main div section").eq(1).find("button")[0];
 
+const finishOverlayElement = $('#overlay')[0];
+const scoreElement = $('#overlay .card-body h3 span')[0];
+const evaluationElement = $('#overlay .card-body h5 span')[0];
+const doneQuizBtn = $('#overlay .card-body button')[0];
+
+
 let questionsList = []
 let currentQuestionNum = 0;
+let userCorrectAnsNum = 0;
 
 onInit();
 
@@ -28,13 +35,19 @@ function onInit()
     $("main").slideDown(500);
   });
 
-  $('h1').on('click',()=>{
-    $("main").slideUp(500, function () {
-        $("main div section").eq(0).css("display", "block");
-        $("main div section").eq(1).css("display", "none");
-        $(this).slideDown(500);
-    });
-  })
+  $('h1').on('click',reset)
+}
+
+function reset()
+{
+  $("main").slideUp(500, function () {
+    $("main div section").eq(0).css("display", "block");
+    $("main div section").eq(1).css("display", "none");
+    $("main").slideDown(500);
+  });
+
+  currentQuestionNum = 0;
+  userCorrectAnsNum = 0;
 }
 
 async function loadQuestions() 
@@ -43,7 +56,7 @@ async function loadQuestions()
 
   Quiz.category = categoryInput.value;
   Quiz.difficulty = difficultyInput.value;
-  Quiz.amount = amountInput.value;
+  Quiz.amount = parseInt(amountInput.value) > 30 ? "30":amountInput.value;
 
 
   questionsList = await Quiz.getQuestions()
@@ -55,7 +68,8 @@ function loadQuestionUI()
 {
   if(currentQuestionNum >= questionsList.length )
   {
-    //TODO: Run End Quiz Page
+    finishOverlayElement.classList.add('d-flex');
+    quizEvaluation();
     return;
   }
 
@@ -83,6 +97,22 @@ function createChoice(choiceText)
           <br>`;
 }
 
+function quizEvaluation()
+{
+  scoreElement.innerHTML = `${userCorrectAnsNum}/${questionsList.length}`;
+  if( userCorrectAnsNum >= (questionsList.length/2) )
+  {
+    evaluationElement.innerHTML = "PASS";
+    evaluationElement.style.color = "var(--success-color)";
+  }
+  else
+  {
+    evaluationElement.innerHTML = "FAIL";
+    evaluationElement.style.color = "var(--error-color)";
+  }
+  
+}
+
 startQuizBtn.addEventListener("click", async function(){
     
   $(this).addClass('btn-disabled');
@@ -96,8 +126,8 @@ startQuizBtn.addEventListener("click", async function(){
       $(this).slideDown(500);
   });
   
-  $(this).removeClass('btn-disabled');
   this.innerHTML = "Start Quiz";
+  $(this).removeClass('btn-disabled');
 
 });
 
@@ -111,8 +141,8 @@ submitAnswerBtn.addEventListener("click", () => {
       const answer = radios[i].nextElementSibling.innerHTML;
       const corretAnswer = questionsList[currentQuestionNum-1].correct_answer;
       console.log(answer, corretAnswer, currentQuestionNum)
-      if(answer !== corretAnswer){console.log("wrong")}
-      else{console.log('right')}
+      if(answer === corretAnswer){ userCorrectAnsNum++; }
+      else{console.log('WRONG ANSWER')}
 
       loadQuestionUI();
       return;
@@ -124,3 +154,9 @@ submitAnswerBtn.addEventListener("click", () => {
   });
   
 });
+
+doneQuizBtn.addEventListener("click",()=>{
+  finishOverlayElement.classList.remove("d-flex");
+  reset();
+});
+

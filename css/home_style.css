@@ -74,6 +74,7 @@ main #error-message{
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
+    background-color: var(--error-color);
 }
 
 main .radioBtns{
@@ -112,4 +113,53 @@ main #answers label{
     visibility: visible;
     border: white 3px solid;
     outline: var(--main-color) 2px solid;
+}
+
+
+/*//////////////////////////////////////////////////////////////////*/
+
+
+
+#overlay {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    display: none;
+}
+
+#overlay .card{
+    background-image: linear-gradient(var(--main-color),var(--secondary-color));
+    color: whitesmoke;
+    padding: 0 1rem;
+}
+
+#overlay .card-header{
+    border-bottom: 2px solid whitesmoke;
+}
+
+#overlay .card-body button{
+    border: 2px solid whitesmoke;
+    background-color: transparent;
+    color: whitesmoke;
+    transition: 0.5s;
+    width: fit-content;
+    padding: 8px 26px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+#overlay .card-body button:hover{
+    border-color: 2px solid transparent;
+    background-color: var(--main-color);
+    color: whitesmoke;
+}
+
+#overlay h5 span{
+    padding: 5px 10px;
+    background: whitesmoke;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 0.5rem;
+    color: black;
+    font-size: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
