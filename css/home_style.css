@@ -128,11 +128,21 @@ main #answers label{
 #overlay .card{
     background-image: linear-gradient(var(--main-color),var(--secondary-color));
     color: whitesmoke;
-    padding: 0 1rem;
 }
 
 #overlay .card-header{
     border-bottom: 2px solid whitesmoke;
+    border: none;
+    position: relative;
+}
+#overlay .card-header::after{
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 0;
+    height: 2px;
+    background-color: whitesmoke;
 }
 
 #overlay .card-body button{
